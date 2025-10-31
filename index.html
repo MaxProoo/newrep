@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Красивый Крупный Текст</title>
+    <title>Текст с Анимацией</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -12,21 +12,51 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f8ff; /* Светло-голубой фон */
+            background-color: #f0f8ff;
+            overflow: hidden; /* Скрываем возможные полосы прокрутки из-за анимации */
         }
+
         .text-container {
-            background-color: #ffffff; /* Белый фон для текста */
+            background-color: #ffffff;
             padding: 40px 60px;
             border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.2); /* Красивая тень */
+            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.2);
             text-align: center;
+            /* Применяем анимации */
+            animation: fadeIn 1s ease-out forwards, 
+                       pulse 2s infinite alternate;
         }
+
         h1 {
-            color: #007bff; /* Яркий синий цвет текста */
-            font-size: 5em; /* Очень крупный размер шрифта */
+            color: #ff5733; /* Яркий оранжево-красный цвет */
+            font-size: 5em;
             margin: 0;
-            text-transform: uppercase; /* Все заглавные */
+            text-transform: uppercase;
             letter-spacing: 2px;
+        }
+
+        /* --- Описание ключевых кадров анимаций --- */
+
+        /* Анимация плавного появления */
+        @keyframes fadeIn {
+            from {
+                opacity: 0; /* Начинаем с полной прозрачности */
+                transform: scale(0.5); /* Начинаем с уменьшенного размера */
+            }
+            to {
+                opacity: 1; /* Заканчиваем полной видимостью */
+                transform: scale(1); /* Заканчиваем нормальным размером */
+            }
+        }
+
+        /* Анимация легкого покачивания (пульсации) */
+        @keyframes pulse {
+            from {
+                transform: scale(1); /* Нормальный размер */
+            }
+            to {
+                transform: scale(1.05); /* Чуть больше */
+            }
         }
     </style>
 </head>
